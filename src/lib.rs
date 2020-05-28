@@ -133,7 +133,13 @@ impl Mul for Weight {
 
 /// Value from `0` to `1` inclusively
 #[derive(Debug, Clone, Copy, PartialEq, PartialOrd)]
-pub struct Probability(pub f64);
+pub struct Probability(f64);
+
+impl Probability {
+	pub fn get(&self) -> f64 {
+		self.0
+	}
+}
 
 impl TryFrom<f64> for Probability {
 	type Error = f64;
