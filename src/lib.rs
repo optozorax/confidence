@@ -15,6 +15,12 @@ impl Confidence {
 	}
 }
 
+impl Default for Confidence {
+	fn default() -> Self {
+		Self(Some(0.0))
+	}
+}
+
 impl TryFrom<f64> for Confidence {
 	type Error = f64;
 
@@ -55,6 +61,12 @@ impl Mul for Confidence {
 /// Value from `0` to `inf` inclusively
 #[derive(Debug, Clone, Copy, PartialEq, PartialOrd)]
 pub struct Weight(Option<f64>);
+
+impl Default for Weight {
+	fn default() -> Self {
+		Self(Some(1.0))
+	}
+}
 
 impl Weight {
 	pub fn none() -> Self {
